@@ -1,0 +1,21 @@
+name : Contexts
+on: 
+    workflow_dispatch:
+env:
+    MY_WORKFLOW_VAR :'workflow'
+    MY_OVERTIME_VAR: 'workflow'
+
+
+jobs:
+    echo-data:
+        runs-on: ubuntu-latest
+        env:
+            MY_JOB_VAR: 'job'
+            MY_OVERTIME_VAR: 'job'
+        steps:
+            - name: Display information
+              run: |
+                echo "Event Name: ${{github.action}}"
+                echo "Ref: ${{github.ref_name}}"
+                echo "SHA: ${{github.sha}}"
+                
